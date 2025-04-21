@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <title>Contact Form</title>
+</head>
+
+<body>
+  <main class="card-container">
+    <h1 class="form-title">Contact Us</h1>
+    <!-- novalidate attribute is a boolean, when present, it specifies that the form-data (input) should not be validated when submitted.-->
+    <form id="contactForm" class="contact-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name <span class="required">*</span></label>
+          <input type="text" id="firstName" name="firstName" required>
+          <!-- global aria-live attribute indicates that an element will be updated -->
+          <!-- The aria-live attribute is set on an empty element. When an update to the page occurs, the empty element with that aria-live attribute should be updated with a brief announcement informing the user an update has been made. -->
+          <div class="error-message" aria-live="polite">This field is required</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="lastName">Last Name <span class="required">*</span></label>
+          <input type="text" id="lastName" name="lastName" required>
+          <div class="error-message" aria-live="polite">This field is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message" aria-live="polite">Please enter a valid email address</div>
+      </div>
+
+      <fieldset class="form-group radio-group">
+        <legend>Query Type <span class="required">*</span></legend>
+        <div class="radio-options">
+          <div class="radio-option">
+            <input type="radio" id="generalEnquiry" name="queryType" value="general" required>
+            <label for="generalEnquiry">General Enquiry</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="supportRequest" name="queryType" value="support" required>
+            <label for="supportRequest">Support Request</label>
+          </div>
+        </div>
+        <div class="error-message" aria-live="polite">Please select a query type</div>
+      </fieldset>
+
+      <div class="form-group">
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="error-message" aria-live="polite">This field is required</div>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" name="consent" required>
+          <span>I consent to being contacted by the team <span class="required">*</span></span>
+        </label>
+        <div class="error-message" aria-live="polite">To submit this form, please consent to being contacted</div>
+      </div>
+
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+
+    <div id="successMessage" class="success-message hidden">
+      <h2>Message Sent!</h2>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
